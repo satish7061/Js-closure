@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crete+Round:ital@1&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Closures Questions</h1>
+
+    <h3>Qu 1. Print Output?</h3>
+<pre>
+    function counter(){
+        var counter = 0;
+        function IncreaseCounter() {
+            return counter += 1;
+        };
+        return IncreaseCounter;
+    } 
+    var counter = Counter();
+    alert(counter());
+    alert(counter());
+    alert(counter());
+    alert(counter());
+</pre>
+    <h2>Ans &nbsp;&nbsp;&nbsp;  -->   &nbsp;&nbsp;&nbsp; Error : Counter is not defined</h2>
+
+
+
+    <h3>Qu 2. Print Output?</h3>
+<pre>
+    let count = 0;
+    (function () {
+       if (count === 0) {
+           let count = 1;
+           console.log(count); // What is logged?
+        }
+        console.log(count); // What is logged?
+    })(); 
+</pre>
+    <h2>Ans &nbsp;&nbsp;&nbsp;  -->   &nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp; 2</h2>
+
+
+    <h3>Qu 3. Print Output?</h3>
+ <pre>
+    for (var i = 0; i < 3; i++) {
+        setTimeout(function log() {
+          console.log(i); // What is logged?
+        }, 1000);
+    }
+</pre>
+    <h2>Ans &nbsp;&nbsp;&nbsp;  -->   &nbsp;&nbsp;&nbsp; 3 &nbsp;&nbsp; 3 &nbsp;&nbsp; 3</h2>
+
+
+    <h3>Qu 4. Write a code to calculate area of a rectangle using inner function. In this case outer function should accept parameter length and inner function should accept parameter breadth?</h3>
+    <h2>Ans &nbsp;&nbsp;&nbsp;  -->   &nbsp;&nbsp;&nbsp; 
+<pre>
+    ( function outerFunc ( length ) {
+        ( function innerFunc ( breadth ) {
+          let area = length * breadth;
+          console.log( "Area of Rectangle => " + area );
+        }) ( 4 );
+    }) ( 15 );
+</pre>
+</h2>
+
+
+    <h3>Qu 5. Take a variable in outer function and create an inner function to increase the counter every time it is called?</h3>
+    <h2>Ans &nbsp;&nbsp;&nbsp;  -->   &nbsp;&nbsp;&nbsp; 
+<pre>
+    function outer ( ) {
+        var counter = 0;
+        function inner ( ) {
+            return counter += 1;
+        };
+        return inner;
+    }
+    var counter = outer( );
+    console.log ( counter ( ) );
+    console.log ( counter ( ) );
+    console.log ( counter ( ) );
+    console.log ( counter ( ) );
+    console.log ( counter ( ) );
+</pre>
+</h2>
+    
+    <h3>Qu 6. Print Output?</h3>
+<pre>
+    var a = 12;
+    ( function ( ) {
+       alert ( a );
+    }) ( );"
+</pre>
+    <h2>Ans &nbsp;&nbsp;&nbsp;  -->   &nbsp;&nbsp;&nbsp; 12 </h2>
+
+
+    <h3>Qu 7. Print Output??</h3>
+<pre>
+    var a = 10;
+    var x = ( function ( ) {
+        var a = 12;
+        return function ( ) {
+          alert ( a );
+        };
+    }) ( );
+    x ( );
+</pre>
+    <h2>Ans &nbsp;&nbsp;&nbsp;  -->   &nbsp;&nbsp;&nbsp; 12 </h2>
+ 
+    <h3>Qu 8. Write a program for Marks Calculator which calculate total marks and average marks?</h3>
+<pre>
+    var globalVar = "xyz";
+    ( function outerFunc ( outerArg ) {
+        var outerVar = 'a';
+        ( function innerFunc ( innerArg ) {
+        var innerVar = 'b';
+        console.log (
+            "outerArg = " + outerArg + "\n" +
+            "innerArg = " + innerArg + "\n" +
+            "outerVar = " + outerVar + "\n" +
+            "innerVar = " + innerVar + "\n" +
+            "globalVar = " + globalVar );
+        
+        }) ( 456 );
+    }) ( 123 );
+</pre>
+<pre> <h2>Ans &nbsp;&nbsp;&nbsp;  -->   &nbsp;&nbsp;&nbsp; outerArg = 123
+                           innerArg = 456
+                           outerVar = a
+                           innerVar = b
+                           globalVar = xyz
+        </pre>
+    </h2>
+
+
+</body>
+</html>
